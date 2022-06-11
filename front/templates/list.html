@@ -25,6 +25,29 @@
 
     <h1>Lista</h1>
 
+    <div class="container mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descricao</th>
+                    <th>Local</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.nome }}</td>
+                    <td>{{ task.descricao }}</td>
+                    <td>{{ task.local }}</td>
+                    <td>{{ task.data }}</td>
+                    <td>{{ task.hora }}</td>
+                </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
 
 
 
