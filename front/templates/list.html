@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,34 +22,54 @@
         </ul>
     </nav>
 
-    <h1>Lista</h1>
+    <h1></h1>
 
-    <div class="container mt-5">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descricao</th>
-                    <th>Local</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for task in tasks %}
-                <tr>
-                    <td>{{ task.nome }}</td>
-                    <td>{{ task.descricao }}</td>
-                    <td>{{ task.local }}</td>
-                    <td>{{ task.data }}</td>
-                    <td>{{ task.hora }}</td>
-                </tr>
-                {% endfor %}    
-            </tbody>
-        </table>
-
-
-
+    <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="table-responsive" data-pattern="priority-columns">
+              <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
+                <thead>
+                  <tr class="table-row">
+                    <th>Compromisso</th>
+                    <th data-priority="1">Descrição</th>
+                    <th data-priority="2">Local</th>
+                    <th data-priority="3">Data</th>
+                    <th data-priority="4">Hora</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for task in tasks %}
+                    {% if task.data > current_date %}
+                      <tr class="table-row">
+                      <td>{{ task.nome }}</td>
+                      <td>{{ task.descricao }}</td>
+                      <td>{{ task.local }}</td>
+                      <td>{{ task.data }}</td>
+                      <td>{{ task.hora }}</td>
+                      <td><input type="image" name="edit-button" src="{% static 'front/imgs/edit-icon.png'%}" class="buttons"></td>
+                      <td><input type="image" name="delete-button" src="{% static 'front/imgs/delete-icon.png'%}" class="buttons"></td>
+                      </tr>
+                    {% elif task.data == current_date %}
+                      {% if task.hora > current_time %}
+                      <tr class="table-row">
+                        <td>{{ task.nome }}</td>
+                        <td>{{ task.descricao }}</td>
+                        <td>{{ task.local }}</td>
+                        <td>{{ task.data }}</td>
+                        <td>{{ task.hora }}</td>
+                        <td><input type="image" name="edit-button" src="{% static 'front/imgs/edit-icon.png'%}" class="buttons"></td>
+                        <td><input type="image" name="delete-button" src="{% static 'front/imgs/delete-icon.png'%}" class="buttons"></td>
+                      </tr>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div><!--end of .table-responsive-->
+          </div>
+        </div>
+      </div>
 
 </body>
 

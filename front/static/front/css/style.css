@@ -56,6 +56,47 @@ body{
 
 
 
+.container-teste{
+  background-color: aqua;
+}
+
+/* -------------------------Table-Style---------------------------- */
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.table-bordered {
+  border: 1px solid black !important;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  
+}
+
+@media screen and (max-width: 767px) {
+  table caption {
+    display: none;
+  }
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+
+.buttons{
+  max-width: 13px;
+  max-height: 13px;
+}
+
+table td, table th{
+  border: 1px solid black !important;
+  padding: 3px;
+}
 
 
 /* -----------------------------Form---------------------------------*/
@@ -135,3 +176,4 @@ body{
     max-width: 30%;
   }
 }
+

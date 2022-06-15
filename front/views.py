@@ -34,9 +34,13 @@ def form(request):
     return render(request, 'form.html')
 
 def list(request):
-    response = requests.get('http://127.0.0.1:8000/api/')
+    current_time = datetime.now().strftime('%H:%M:%S')
+    current_date = datetime.today().strftime('%Y-%m-%d')
 
+    response = requests.get('http://127.0.0.1:8000/api/')
     tasks = response.json()
     #print(tasks)
 
-    return render(request, 'list.html', {'tasks': tasks})
+    return render(request, 'list.html', {'tasks': tasks,
+                                         'current_time': current_time,
+                                         'current_date': current_date})

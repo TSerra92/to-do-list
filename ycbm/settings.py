@@ -57,7 +57,9 @@ ROOT_URLCONF = 'ycbm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'front/templates/'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
